@@ -1,0 +1,46 @@
+<p id="parrafito">
+    <script>
+        document.getElementById("parrafito").innerHTML=5+6;
+    </script>
+</p>
+<p>
+    <script>
+        document.write("<h2>Buenos días</h2>");
+    </script>
+</p>
+<h1>Modificando el código HTML</h1>
+<p id="prueba">Modificando el contenido.</p>
+<button type="button" onclick="document.getElementById('prueba').innerHTML = 'CAMBIANDO el contenido!'">
+
+
+    <h1>Cambio de imagenes con JavaScript</h1>
+
+    <img id="myFImage"
+         onclick="cambiaPic()"
+         src="http://myfpschool.com/wp-content/uploads/2016/06/myblack.jpeg"
+         width="100"
+         height="180">
+
+    <p>Haz click sobre las letras para cambiarlas.</p>
+
+    <script>
+        function cambiaPic() {
+            var image = document.getElementById('myFImage');
+
+            if (image.src.match("green")) {
+                image.src = "http://myfpschool.com/wp-content/uploads/2016/06/myblack.jpeg";
+            } else {
+                image.src = "http://myfpschool.com/wp-content/uploads/2016/06/mygreen.jpeg";
+            }
+        }
+    </script>
+
+    <p id="mytxt">Aprende JS con .....</p>
+    <button type="button" ondblclick="myFunction()">Dale!</button>
+    <script>
+        function myFunction(){
+            var x=document.getElementById("mytxt");
+            x.style.fontSize="25px";
+            x.style.color="red"
+        }
+    </script>
