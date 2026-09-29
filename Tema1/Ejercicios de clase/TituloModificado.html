@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="titulo">Título Original</h1>
+    <p id="parrafo">Contenido inicial del parrafo</p>
+    <button onclick="cambiarTodo()">Cambiar texto</button>
+    <button onclick="cambiarEstiloCSS()">Cambiar Estilo CSS</button>
+    <script>
+        function cambiarTodo(){
+            document.getElementById('parrafo').innerHTML="El contenido del texto ha sido actualizado correctamente";
+            document.getElementById('titulo').innerHTML="¡Título Modificado!";
+
+        }
+        function cambiarEstiloCSS(){
+            document.getElementById('parrafo').style.color = "red";
+            document.getElementById('parrafo').style.fontSize = "25px";
+            document.getElementById('titulo').style.color = "blue";
+
+        }
+    </script>
+
+</body>
