@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<body>
+    <button onclick="ruso()">Ruso</button>
+    <button onclick="español()">Español</button>
+    <button onclick="ingles()">Inglés</button>
+    <p id="mensaje"></p>
+    <script>
+        function ruso() {
+            var mensaje = document.getElementById("mensaje");
+            mensaje.innerHTML = "Добро пожаловать!!";
+            mensaje.style.color = "pink";
+        }
+        function español() {
+            var mensaje = document.getElementById("mensaje");
+            mensaje.innerHTML = "Bienvenido!!";
+            mensaje.style.color = "red";
+        }
+        function ingles() {
+            var mensaje = document.getElementById("mensaje");
+            mensaje.innerHTML = "Welcome!!";
+            mensaje.style.color = "blue";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Secuencia de imágenes</h1>
+    <img id="imagen"
+         src="https://media.adeo.com/media/2186861/media.png?width=3000&height=3000&format=jpg&quality=80&fit=bounds"
+         width="400"
+         onclick="cambiarImagen()">
+
+         <script>
+       function cambiarImagen() {
+            var image = document.getElementById('imagen');
+            if (image.src == "https://media.adeo.com/media/2186861/media.png?width=3000&height=3000&format=jpg&quality=80&fit=bounds") {
+                image.src = "https://m.media-amazon.com/images/I/4108tLOSLrL._AC_UF894,1000_QL80_.jpg";
+            } 
+            else if (image.src == "https://m.media-amazon.com/images/I/4108tLOSLrL._AC_UF894,1000_QL80_.jpg") {
+                image.src = "https://svgsilh.com/svg/33766.svg";
+            } 
+            else if (image.src == "https://svgsilh.com/svg/33766.svg") {
+                image.src = "https://svgsilh.com/png-1024/146024.png";
+            } 
+            else if (image.src == "https://svgsilh.com/png-1024/146024.png") {
+                image.src = "https://media.adeo.com/media/2186861/media.png?width=3000&height=3000&format=jpg&quality=80&fit=bounds";
+            }
+            
+        }
+    </script>
+</body>
+</html>
