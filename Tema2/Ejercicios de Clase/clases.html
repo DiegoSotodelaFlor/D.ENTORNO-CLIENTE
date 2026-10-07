@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h2>Clases restantes hasta la evaluación</h2>
+    <p id="resultado"></p>
+    <script>
+        var hoy = new Date();
+        var evaluacion = new Date("2026-12-01 ");
+        var clases = 0;
+        while (hoy < evaluacion) {
+            var dia = hoy.getDay();
+            if (dia == 2 || dia == 3 || dia == 5) {
+                clases++;
+            }
+            hoy.setDate(hoy.getDate() + 1);
+        }
+        document.getElementById("resultado").innerHTML =
+            "Quedan " + clases + " clases de 2 horas.";
+    </script>
+</body>
+</html>

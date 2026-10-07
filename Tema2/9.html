@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h2>Contenido del array</h2>
+    <p id="resultado"></p>
+    <script>
+        var milista = ['panadero', 456, [0, 1, 2]];
+        document.getElementById("resultado").innerHTML =
+            milista[0] + "<br>" +
+            milista[1] + "<br>" +
+            milista[2][0] + "<br>" +
+            milista[2][1] + "<br>" +
+            milista[2][2];
+        console.log(milista[2][2]);
+    </script>
+</body>
+</html>
