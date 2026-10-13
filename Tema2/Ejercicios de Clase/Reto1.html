@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tema 2 - Eventos con 'on...'</title>
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <h1>Boletín de notas de clase</h1>
+
+    <a href="">Notas</a> | <a href="">Consultas</a>
+
+    <div>
+        <table border="1" id="tabla">
+            <tr style="background-color: azure;">
+                <th>Alumno</th>
+                <th>1T</th>
+                <th>2T</th>
+                <th>3T</th>
+                <th>Media</th>
+                <th>Calificación</th>
+            </tr>
+        </table>
+    </div>
+
+    <div id="añadir">
+        <h2>Añadir alumno</h2>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+
+        <label for="1T">1T:</label>
+        <input type="number" id="1T" name="1T">
+
+        <label for="2T">2T:</label>
+        <input type="number" id="2T" name="2T">
+
+        <label for="3T">3T:</label>
+        <input type="number" id="3T" name="3T">
+
+        <button id="botonAñadir" onclick="añadirAlumno()" style="background-color: blue; color: white;">Añadir</button>
+
+        <br><br>
+
+        <button id="botonVolver" onclick="volver()" style="background-color: grey; color: white;">Volver a los valores iniciales</button>
+
+        <br><br>
+
+        <p id="añadido"></p>
+    </div>
+
+    <script>
+        var contador = 1;
+
+        function añadirAlumno() {
+            var nombre = document.getElementById("nombre").value;
+            var nota1 = Number(document.getElementById("1T").value);
+            var nota2 = Number(document.getElementById("2T").value);
+            var nota3 = Number(document.getElementById("3T").value);
+
+
+            var media = (nota1 + nota2 + nota3) / 3;
+            var calificacion;
+
+            if (media < 5) {
+                calificacion = "Insuficiente";
+            } else if (media < 6) {
+                calificacion = "Suficiente";
+            } else if (media < 7) {
+                calificacion = "Bien";
+            } else if (media < 9) {
+                calificacion = "Notable";
+            } else {
+                calificacion = "Sobresaliente";
+            }
+
+            var tabla = document.getElementById("tabla");
+            var fila = tabla.insertRow();
+
+            fila.insertCell(0).innerHTML = nombre;
+            fila.insertCell(1).innerHTML = nota1;
+            fila.insertCell(2).innerHTML = nota2;
+            fila.insertCell(3).innerHTML = nota3;
+            fila.insertCell(4).innerHTML = media.toFixed(2);
+            fila.insertCell(5).innerHTML = calificacion;
+
+            if (nota1 > 4) {
+                fila.cells[1].style.backgroundColor = "green";
+            } else if (nota1 < 5) {
+                fila.cells[1].style.backgroundColor = "red";
+            }
+
+            if (nota2 > 4) {
+                fila.cells[2].style.backgroundColor = "green";
+            } else if (nota2 < 5) {
+                fila.cells[2].style.backgroundColor = "red";
+            }
+
+            if (nota3 > 4) {
+                fila.cells[3].style.backgroundColor = "green";
+            } else if (nota3 < 5) {
+                fila.cells[3].style.backgroundColor = "red";
+            }
+
+            contador++;
+
+            document.getElementById("añadido").innerHTML = "Añadido: " + nombre + ". Ahora hay  " + contador + " alumnos.";
+
+            document.getElementById("nombre").value = "";
+            document.getElementById("1T").value = "";
+            document.getElementById("2T").value = "";
+            document.getElementById("3T").value = "";
+        }
+
+        function volver() {
+            location.reload();
+        }
+    </script>
+
+</body>
+
+</html>
