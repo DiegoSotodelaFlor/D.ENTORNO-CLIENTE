@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Tema 2 - Eventos con 'on...'</title>
     <style>
-        
+
     </style>
 </head>
 
@@ -46,11 +46,33 @@
 
         <br><br>
 
-        <button id="botonVolver" onclick="volver()" style="background-color: grey; color: white;">Volver a los valores iniciales</button>
+        <button id="botonVolver" onclick="volver()" style="background-color: grey; color: white;">Volver a los valores
+            iniciales</button>
 
         <br><br>
 
         <p id="añadido"></p>
+    </div>
+
+    <div id="seccionConsultas">
+        <h2>Consultas</h2>
+
+        <button onclick="contarAprobados()">Contar aprobados</button>
+        <button onclick="mejorNota()">Mejor nota de la clase</button>
+        <button onclick="mediaTrimestre()">Media de un trimestre</button>
+        <select id="trimestre">
+            <option value="1">1º trimestre</option>
+            <option value="2">2º trimestre</option>
+            <option value="3">3º trimestre</option>
+        </select>
+
+        <br><br>
+
+        <input type="text" id="buscarNombre" placeholder="Nombre del alumno">
+        <button onclick="buscarAlumno()">Buscar alumno</button>
+
+        <h3>Resultado</h3>
+        <div id="resultado"></div>
     </div>
 
     <script>
@@ -118,6 +140,83 @@
 
         function volver() {
             location.reload();
+        }
+
+        function contarAprobados() {
+            var filas = document.getElementById("tabla").rows;
+            var aprobados = 0;
+            for (var i = 1; i < filas.length; i++) {
+                var media = Number(filas[i].cells[4].innerHTML);
+                if (media >= 5) {
+                    aprobados++;
+                }
+            }
+            var total = filas.length - 1;
+            document.getElementById("resultado").innerHTML =
+                "Aprobados: " + aprobados + " de " + total + " alumnos<br>" +
+                "Suspensos: " + (total - aprobados);
+        }
+
+        function mejorNota() {
+            var filas = document.getElementById("tabla").rows;
+
+            if (filas.length < 2) {
+                document.getElementById("resultado").innerHTML = "No hay alumnos en la tabla.";
+                return;
+            }
+
+            var mejorFila = filas[1];
+            for (var i = 2; i < filas.length; i++) {
+                if (Number(filas[i].cells[4].innerHTML) > Number(mejorFila.cells[4].innerHTML)) {
+                    mejorFila = filas[i];
+                }
+            }
+
+            document.getElementById("resultado").innerHTML =
+                "Mejor nota de la clase: " + mejorFila.cells[0].innerHTML + "<br>" +
+                "Notas: " + mejorFila.cells[1].innerHTML + ", " + mejorFila.cells[2].innerHTML + ", " + mejorFila.cells[3].innerHTML + "<br>" +
+                "Media: " + mejorFila.cells[4].innerHTML + " (" + mejorFila.cells[5].innerHTML + ")";
+        }
+
+        function mediaTrimestre() {
+            var filas = document.getElementById("tabla").rows;
+            var trimestre = Number(document.getElementById("trimestre").value);
+
+            if (filas.length < 2) {
+                document.getElementById("resultado").innerHTML = "No hay alumnos en la tabla.";
+                return;
+            }
+
+            var suma = 0;
+            for (var i = 1; i < filas.length; i++) {
+                suma += Number(filas[i].cells[trimestre].innerHTML);
+            }
+            var media = suma / (filas.length - 1);
+
+            document.getElementById("resultado").innerHTML =
+                "Media del " + trimestre + "º trimestre: " + media.toFixed(2);
+        }
+
+        function buscarAlumno() {
+            var texto = document.getElementById("buscarNombre").value.trim().toLowerCase();
+            var filas = document.getElementById("tabla").rows;
+
+            if (texto == "") {
+                document.getElementById("resultado").innerHTML = "Escribe el nombre de un alumno.";
+                return;  
+            }
+
+            for (var i = 1; i < filas.length; i++) {
+                if (filas[i].cells[0].innerHTML.toLowerCase() == texto) {
+                    document.getElementById("resultado").innerHTML =
+                        filas[i].cells[0].innerHTML + " está en la posición " + i + "<br>" +
+                        "Notas: " + filas[i].cells[1].innerHTML + ", " + filas[i].cells[2].innerHTML + ", " + filas[i].cells[3].innerHTML + "<br>" +
+                        "Media: " + filas[i].cells[4].innerHTML + " (" + filas[i].cells[5].innerHTML + ")";
+                    return;
+                }
+            }
+
+            document.getElementById("resultado").innerHTML = "No se ha encontrado ningún alumno con ese nombre.";
         }
     </script>
 
