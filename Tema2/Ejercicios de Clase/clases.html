@@ -13,12 +13,12 @@
         while (hoy < evaluacion) {
             var dia = hoy.getDay();
             if (dia == 2 || dia == 3 || dia == 5) {
-                clases++;
+                clases+=2;
             }
             hoy.setDate(hoy.getDate() + 1);
         }
         document.getElementById("resultado").innerHTML =
-            "Quedan " + clases + " clases de 2 horas.";
+            "Quedan " + clases + " clases de 1 hora";
     </script>
 </body>
 </html>

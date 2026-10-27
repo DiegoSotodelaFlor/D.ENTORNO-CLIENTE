@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <h1>Rombo</h1>
+
+    <label for="filas">Número de filas:</label>
+    <input type="number" id="filas" min="1" value="4">
+
+    <button onclick="dibujarRombo()">Dibujar rombo</button>
+
+    <pre id="rombo"></pre>
+
+    <script>
+        function dibujarRombo() {
+            let n = parseInt(document.getElementById("filas").value);
+            if (isNaN(n) || n < 1) {
+                alert("Introduce un número mayor que 0");
+                return;
+            }
+            n = (n % 2 === 0) ? n + 1 : n;        // forzar impar
+            let mid = (n - 1) / 2;
+            let dibujo = "";
+            for (let i = 0; i < n; i++) {          // filas
+                for (let j = 0; j < n; j++) {        // columnas
+                    dibujo += (Math.abs(i - mid) + Math.abs(j - mid) === mid) ? "*" : " ";
+                }
+                dibujo += "\n";
+            }
+            document.getElementById("rombo").textContent = dibujo;
+        }
+    </script>
+
+</body>
+
+</html>

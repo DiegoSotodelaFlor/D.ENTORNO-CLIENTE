@@ -1,0 +1,23 @@
+<!--¿Cuántos días faltan?
+Escribe una función diasHasta(fecha)
+que devuelva los días que faltan hasta
+esa fecha. Pruébala con tu cumpleaños.
+Pista: (fecha - new Date()) / 86400000 y
+redondea con Math.ceil.-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        function diasHasta(fecha) {
+            return Math.ceil((fecha - new Date()) / 86400000);
+        }
+        //probar con mi cumpleaños
+        const cumple = new Date("2027-11-29");
+
+        console.log("Faltan " + diasHasta(cumple) + " días para mi cumpleaños.");
+    </script>
+</body>
+</html>

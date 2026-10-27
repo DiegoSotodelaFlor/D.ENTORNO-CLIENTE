@@ -1,0 +1,28 @@
+<!--Fecha en castellano
+Muestra por consola la fecha de hoy con
+el formato «lunes, 19 de octubre de
+2026».
+Pista: dos arrays con los nombres de días y
+meses: dias[hoy.getDay()].-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        //nombres de los dias de la semana
+        const dias = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+        //nombres de los meses
+        const meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio",
+                       "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+        //fecha actual
+        const hoy = new Date();
+
+        //fecha en castellano
+        const fecha = dias[hoy.getDay()] + ", " + hoy.getDate() + " de " +
+                      meses[hoy.getMonth()] + " de " + hoy.getFullYear();
+        console.log(fecha);
+    </script>
+</body>
+</html>

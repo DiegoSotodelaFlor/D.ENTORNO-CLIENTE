@@ -1,0 +1,44 @@
+
+<!--Reloj con pausa
+En una página HTML, muestra la hora
+actual actualizándose cada segundo,
+con un botón Parar y otro Reanudar.
+Pista: toLocaleTimeString("es-ES"); guarda
+el id de setInterval en una variable.-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reloj con pausa</title>
+</head>
+<body>
+    <h1>Reloj</h1>
+
+    <p id="hora"></p>
+
+    <button onclick="parar()">Parar</button>
+    <button onclick="reanudar()">Reanudar</button>
+
+    <script>
+        function actualizarHora() {
+            const ahora = new Date();
+            document.getElementById("hora").textContent =
+                ahora.toLocaleTimeString("es-ES");
+        }
+
+        actualizarHora();
+
+        let reloj = setInterval(actualizarHora, 1000);
+
+        function parar() {
+            clearInterval(reloj);
+        }
+
+        function reanudar() {
+            clearInterval(reloj);
+            actualizarHora();
+            reloj = setInterval(actualizarHora, 1000);
+        }
+    </script>
+</body>
+</html>
