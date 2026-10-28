@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de tareas</title>
+</head>
+<body>
+    <h1>Lista de tareas</h1>
+
+    <input type="text" id="texto" placeholder="Escribe una tarea">
+    <button onclick="anadirTarea(document.getElementById('texto').value)">
+        Añadir tarea
+    </button>
+
+    <ul id="lista"></ul>
+
+    <script>
+        function anadirTarea(texto) {
+            let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
+
+            if (texto.trim() !== "") {
+                tareas.push(texto);
+
+                localStorage.setItem("tareas", JSON.stringify(tareas));
+
+                document.getElementById("texto").value = "";
+
+                verTareas();
+            }
+        }
+
+        function verTareas() {
+            let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
+
+            document.getElementById("lista").innerHTML = "";
+
+            for (let tarea of tareas) {
+                let li = document.createElement("li");
+                li.textContent = tarea;
+                document.getElementById("lista").appendChild(li);
+            }
+        }
+
+        //mostrar las tareas guardadas al cargar la página
+        verTareas();
+    </script>
+</body>
+</html>

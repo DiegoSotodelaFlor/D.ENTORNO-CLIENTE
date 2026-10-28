@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tema que se recuerda</title>
+</head>
+<body>
+    <h1>Tema de la página</h1>
+
+    <p id="tema"></p>
+
+    <button onclick="cambiarTema()">Cambiar tema</button>
+
+    <script>
+        //cecuperar el tema guardado
+        let tema = localStorage.getItem("tema");
+
+        //si no existe, empezar en claro
+        if (tema === null) {
+            tema = "claro";
+        }
+
+        //mostrar el tema
+        document.getElementById("tema").textContent =
+            "Tema actual: " + tema;
+
+        function cambiarTema() {
+            if (tema === "claro") {
+                tema = "oscuro";
+            } else {
+                tema = "claro";
+            }
+
+            //guardar el tema
+            localStorage.setItem("tema", tema);
+
+            //mostrar el tema actualizado
+            document.getElementById("tema").textContent =
+                "Tema actual: " + tema;
+        }
+    </script>
+</body>
+</html>

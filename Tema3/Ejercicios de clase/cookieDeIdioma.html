@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cookie de idioma</title>
+</head>
+<body>
+    <h1>Cookie de idioma</h1>
+
+    <script>
+        //crear la cookie durante 7 dias
+        document.cookie = "idioma=es; max-age=604800; path=/";
+
+        console.log("Cookie creada:", document.cookie);
+
+        //leer la cookie
+        function leerCookie(nombre) {
+            let cookies = document.cookie.split("; ");
+
+            for (let cookie of cookies) {
+                let partes = cookie.split("=");
+
+                if (partes[0] === nombre) {
+                    return partes[1];
+                }
+            }
+
+            return null;
+        }
+
+        console.log("Idioma:", leerCookie("idioma"));
+
+        //borrar la cookie
+        document.cookie = "idioma=; max-age=0; path=/";
+
+        console.log("Cookie borrada:", document.cookie);
+    </script>
+</body>
+</html>
