@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones JavaScript</title>
+</head>
+
+<body>
+
+    <script>
+
+        const notas = [4, 7.5, 9, 3, 6];
+        notas.forEach((n, i) => console.log(i, n)); // recorre
+        notas.map(n => n * 10); // [40, 75, 90, 30, 60]
+        notas.filter(n => n >= 5); // [7.5, 9, 6]
+        notas.reduce((s, n) => s + n, 0); // 29.5
+        notas.find(n => n > 8); // 9
+        notas.some(n => n < 5); // true (alguno suspende)
+        notas.every(n => n >= 3); // true (todos ≥ 3)
+        // ¡Cuidado! sort() sin función ordena como texto
+        [10, 9, 1].sort(); // [1, 10, 9]
+        [10, 9, 1].sort((a, b) => a - b); // [1, 9, 10]
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones JavaScript</title>
+</head>
+
+<body>
+    <script>
+        const notas = [6, 3.5, 8, 9.5, 4, 7];
+
+        // Obtener las notas aprobadas
+        const aprobadas = notas.filter(nota => nota >= 5);
+
+        // Calcular la media
+        const media = notas.reduce((acumulado, nota) => acumulado + nota, 0) / notas.length;
+
+        // Obtener la nota más alta
+        const maxima = notas.reduce((acumulado, nota) =>
+            acumulado > nota ? acumulado : nota
+        );
+
+        // Mostrar resultados
+        console.log("Notas aprobadas:", aprobadas);
+        console.log("Media:", media.toFixed(2));
+        console.log("Nota más alta:", maxima);
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones JavaScript</title>
+</head>
+
+<body>
+    <script>
+        function capitalizar(texto) {
+            return texto
+                .split(" ")
+                .map(palabra => palabra.charAt(0).toUpperCase() + palabra.slice(1))
+                .join(" ");
+        }
+
+        // Prueba
+        console.log(capitalizar("ana garcía lópez"));
+
+    </script>
+
+</body>
+
+</html>

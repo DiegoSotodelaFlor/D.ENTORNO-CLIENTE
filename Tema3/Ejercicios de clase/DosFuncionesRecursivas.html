@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funciones JavaScript</title>
+</head>
+
+<body>
+    <script>
+        // Función recursiva para sumar las cifras de un número
+        function sumaDigitos(n) {
+            if (n < 10) {
+                return n; // Caso base
+            }
+
+            return (n % 10) + sumaDigitos(Math.floor(n / 10));
+        }
+
+        // Función recursiva para calcular una potencia
+        function potencia(base, exp) {
+            if (exp === 0) {
+                return 1; // Caso base
+            }
+
+            return base * potencia(base, exp - 1);
+        }
+
+        // Pruebas
+        console.log("Suma de dígitos:", sumaDigitos(1234));
+        console.log("Potencia:", potencia(2, 3));
+
+    </script>
+
+</body>
+
+</html>
